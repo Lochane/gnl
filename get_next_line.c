@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:18:47 by lsouquie          #+#    #+#             */
-/*   Updated: 2022/12/15 13:46:22 by lsouquie         ###   ########.fr       */
+/*   Updated: 2022/12/15 18:21:36 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*add_it(char *stash, char *line)
+{
+	int i;
+
+	i = 0;
+	while(stash[i])
+	{
+		line[i] = stash[i];
+		i++;
+	}
+	line[i] = '\0';
+	return(line);
+}
 
 int	found_newline(char *buf)
 {
@@ -41,7 +55,6 @@ char	*stash_it(char *stash, int fd)
 		buf[readed] = '\0';
 		stash = ft_strjoin(stash, buf);
 	}
-	printf("%s", stash);
 	return (stash);
 }
 
@@ -55,9 +68,11 @@ char	*get_next_line(int fd)
 	
 	// 1. read from fd and add to linked list
 	stash = stash_it(stash, fd);
-	// 	printf("%s", stash->content);
+	line = malloc(sizeof(char *) * ft_strlen(stash));
+	if (!line)
+		return (NULL);
 	// 2. extract from stash to line
-	// add_it(line, stash);
+	line = add_it(stash, line);
 	// 3. clean up stash
 	return (line);
 }
