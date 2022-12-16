@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:05:37 by lsouquie          #+#    #+#             */
-/*   Updated: 2022/12/15 12:42:59 by lsouquie         ###   ########.fr       */
+/*   Updated: 2022/12/16 12:04:40 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char const *s2);
 size_t	ft_strlen(const char *s);
-char	*ft_strdup(const char *s);
 
 
 
